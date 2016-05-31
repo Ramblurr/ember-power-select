@@ -29,7 +29,7 @@ export default Ember.Component.extend({
 
     handleFocus(select, e) {
       let action = this.get('onfocus');
-      if (action) { action(select, e); }
+      if (action && action(select, e) === false) { return false; }
       this.focusInput();
     },
 

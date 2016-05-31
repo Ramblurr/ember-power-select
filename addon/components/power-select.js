@@ -228,7 +228,7 @@ export default Ember.Component.extend({
     handleFocus(dropdown, event) {
       const action = this.get('onfocus');
       if (action) {
-        action(this.get('publicAPI'), event);
+        if(action(this.get('publicAPI'), event) === false) { return false; }
       }
       this.get('eventSender').trigger('focus');
     },
